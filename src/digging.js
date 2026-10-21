@@ -1,4 +1,4 @@
-import {surface} from './graphics.js';
+import {surface} from './graphics.js?v=4';
 // Physical soil removal: opaque top layer + accumulated textured eraser strokes.
 export class Digging {
  constructor(graphics,x,y,flower,glass){this.x=x;this.y=y;this.base=graphics.hole(x,y,flower,glass);this.cover=graphics.cellSoil(x,y);this.ctx=this.cover.getContext('2d');this.elapsed=0;this.duration=2.85;this.lastProgress=0;this.tip={x:57,y:22};this.noiseTick=-1;}

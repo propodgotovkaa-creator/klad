@@ -1,11 +1,11 @@
 import {fresh,select,prepare,hide,search,move,beginDig,finishDig,key} from './gameState.js';
-import {Graphics,loadAssets,BOARD,flowers,glasses,surface} from './graphics.js';
-import {Digging,Particles} from './digging.js';
+import {Graphics,loadAssets,BOARD,flowers,glasses,surface} from './graphics.js?v=4';
+import {Digging,Particles} from './digging.js?v=4';
 import {Sound} from './audio.js?v=2';
 const canvas=document.querySelector('#scene'),c=canvas.getContext('2d'),ui=document.querySelector('#ui'),game=document.querySelector('#game'),live=document.querySelector('#live');
 const sound=new Sound(),particles=new Particles();
 let state=fresh(),graphics,modal='intro',animation=null,excavations=new Map(),brushPos={x:2,y:5},last=0,inspection=false,message='',focusReturn=null;
-function resize(){game.style.transform=`scale(${Math.min(innerWidth/1440,innerHeight/810)})`;game.style.left=`${(innerWidth-1440)/2}px`;game.style.top=`${(innerHeight-810)/2}px`;}
+function resize(){const density=Math.min(2,window.devicePixelRatio||1);canvas.width=Math.round(1440*density);canvas.height=Math.round(810*density);c.setTransform(density,0,0,density,0,0);c.imageSmoothingEnabled=true;c.imageSmoothingQuality='high';game.style.transform=`scale(${Math.min(innerWidth/1440,innerHeight/810)})`;game.style.left=`${(innerWidth-1440)/2}px`;game.style.top=`${(innerHeight-810)/2}px`;}
 addEventListener('resize',resize);resize();
 function say(text){message=text;live.textContent=text;}
 function reset(){state=fresh();state.stage='create';animation=null;excavations.clear();particles.items=[];brushPos={x:2,y:5};inspection=false;message='';modal=null;}

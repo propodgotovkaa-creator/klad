@@ -1,5 +1,5 @@
-export const flowers=[['Ромашка','#fff9de',15],['Незабудка','#75b8f5',5],['Василёк','#698aee',18],['Мак','#ef6956',6],['Одуванчик','#f3c54c',28],['Клевер','#d28ab3',23],['Колокольчик','#a290e2',5],['Маргаритка','#f3b5c5',16]];
-export const glasses=[['Изумрудное','#3fbe80'],['Голубое','#72c8eb'],['Бирюзовое','#31b7b7'],['Синее','#4e78da'],['Янтарное','#dea047'],['Розовое','#e6a0b6'],['Прозрачное','#daece2']];
+export const flowers=[['Ромашка','#fff9de',15],['Незабудка','#75b8f5',5],['Василёк','#698aee',18],['Мак','#ef6956',6],['Одуванчик','#f3c54c',28],['Клевер','#d28ab3',23],['Колокольчик','#a290e2',5],['Маргаритка','#f3b5c5',16],['Тюльпан','#ed6150',6],['Анютины глазки','#8b5ab0',5],['Лилия','#fff3d7',6],['Бархатцы','#f8a22e',18]];
+export const glasses=[['Изумрудное','#3fbe80'],['Голубое','#72c8eb'],['Бирюзовое','#31b7b7'],['Синее','#4e78da'],['Янтарное','#dea047'],['Розовое','#e6a0b6'],['Прозрачное','#daece2'],['Фиолетовое','#9a6ad4'],['Оранжевое','#f38632']];
 export function rng(seed){return ()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296;};}
 export function ellipse(c,x,y,rx,ry,color,rotation=0){c.beginPath();c.ellipse(x,y,rx,ry,rotation,0,Math.PI*2);c.fillStyle=color;c.fill();}
 export function flower(c,x,y,r,index=0){const [,color,n]=flowers[index];c.save();c.translate(x,y);c.rotate(-.2);c.shadowColor='#09140966';c.shadowBlur=r*.13;c.shadowOffsetY=r*.06;
